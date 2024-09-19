@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Item from "./Item";
-import { useDispatch, useSelector } from "react-redux";
-import { clearList, removeFromList, toggleUpdate } from "../travelSlice";
+import { useDispatch } from "react-redux";
+import { clearList } from "../features/travelSlice";
 
 export default function PackingList({ items }) {
   // const items = useSelector((store) => store.travelList);
@@ -13,10 +13,10 @@ export default function PackingList({ items }) {
   }
   if (sortBy === "input") sortedItems = items;
 
-  if (sortBy === "description")
-    sortedItems = items
-      .slice()
-      .sort((a, b) => a.description.localeCompare(b.description));
+  if (sortBy === "description") {
+    sortedItems = items.slice().sort((a, b) => a.title.localeCompare(b.title));
+    console.log(sortedItems);
+  }
 
   if (sortBy === "packed")
     sortedItems = items
@@ -26,7 +26,7 @@ export default function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {items.map((item) => (
+        {sortedItems.map((item) => (
           <Item item={item} />
         ))}
       </ul>

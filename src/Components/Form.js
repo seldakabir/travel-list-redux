@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToList } from "../travelSlice";
+import { addToList } from "../features/travelSlice";
 
 export default function Form({ onAddItems }) {
   const [description, setDescription] = useState("");

@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
-import { removeFromList, toggleUpdate } from "../travelSlice";
+import { removeFromList, toggleUpdate } from "../features/travelSlice";
 
 export default function Item({ item }) {
-  console.log(item);
   const dispatch = useDispatch();
   function handleDeleteItem() {
     dispatch(removeFromList(item.id));
